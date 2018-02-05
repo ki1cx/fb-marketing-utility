@@ -1,0 +1,37 @@
+{
+  "name": "fb-marketing-utility",
+  "version": "0.0.1",
+  "description": "fb marketing utility",
+  "main": "build/index.js",
+  "peerDependencies": {
+    "facebook-nodejs-ads-sdk": "^2.11.3"
+  },
+  "keywords": [
+    "fb",
+    "marketing",
+    "utility",
+    "cpa",
+    "delivery",
+    "estimation"
+  ],
+  "dependencies": {},
+  "scripts": {
+    "test": "./node_modules/jest/bin/jest.js",
+    "build": "webpack"
+  },
+  "author": {
+    "name": "Ki Chang",
+    "email": "kiwchang@gmail.com"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-jest": "^22.1.0",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-remove-comments": "^2.0.0",
+    "babel-preset-env": "^1.6.1",
+    "facebook-nodejs-ads-sdk": "^2.11.3",
+    "jest": "^22.1.4",
+    "webpack": "^2.6.1"
+  }
+}

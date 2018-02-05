@@ -1,0 +1,1 @@
+module.exports = {"id":"1111","name":"adset","campaign":{"objective":"PAGE_LIKES","id":"2222"},"promoted_object":{"page_id":"3333"},"optimization_goal":"PAGE_LIKES"}

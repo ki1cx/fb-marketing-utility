@@ -1,0 +1,15 @@
+version: '3'
+services:
+  react-client:
+    image: node:9.3.0
+    container_name: fb_marketing_utility
+    hostname: fb-marketing-utility
+    volumes:
+      - $PWD:/var/lib/fb-marketing-utility:rw
+      - /tmp:/tmp
+    working_dir: /var/lib/fb-marketing-utility
+    ports:
+      - 3003:4000
+      - 9229:9229
+    command: bash -c "sleep 99999999"
+

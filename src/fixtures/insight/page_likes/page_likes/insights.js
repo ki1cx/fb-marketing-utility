@@ -1,0 +1,1 @@
+module.exports = [{"cost_per_action_type":[{"action_type":"like","value":"11.365"}],"date_start":"2018-01-01","date_stop":"2018-01-03"}, {"cost_per_action_type":[{"action_type":"like","value":"2.365"}],"date_start":"2018-01-04","date_stop":"2018-01-11"}]
