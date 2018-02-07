@@ -3,13 +3,15 @@ const AdAccount = adsSdk.AdAccount;
 const AdSet = adsSdk.AdSet;
 const Campaign = adsSdk.Campaign;
 const AdsInsights = adsSdk.AdsInsights;
-const AdPromotedObject = adsSdk.AdPromotedObject;
-const utility = require('../src/index');
-const getAdSets = require('./getAdSets');
+
+import utility from '../build/index';
+import getAdSets from './getAdSets';
+
+require('dotenv').config();
 
 void async function () {
-  const accessToken = 'your token';
-  const adAccountId = 'your ad account id';
+  const accessToken = process.env.FB_ACCESS_TOKEN;
+  const adAccountId = process.env.FB_AD_ACCOUNT_ID;
   const debug = false;
   const adSets = await getAdSets(accessToken, adAccountId, debug);
   const time_ranges = [{
@@ -24,13 +26,15 @@ void async function () {
   }];
 
   for(const adSet of adSets) {
+    console.log(adSet.name);
+
     const insights = await adSet.getInsights([AdsInsights.Fields.action_values, AdsInsights.Fields.cost_per_action_type], {
       // date_preset: AdsInsights.DatePreset.lifetime.toLowerCase(),
       time_ranges: time_ranges,
       // limit: 10
     });
 
-    const cpas = utility.getCPAs(adSet, insights);
+    const cpas = utility.getCPA(adSet, insights);
 
     console.log(cpas);
   }

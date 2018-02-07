@@ -5,8 +5,8 @@
  * Licensed under the MIT License.
  */
 
-const _getCPA = require('./getCPA');
-const _getBenchmarkCPA = require('./getBenchmarkCPA');
+import _getCPA from './getCPA';
+import _getBenchmarkCPA from './getBenchmarkCPA';
 
 module.exports = {
   getBenchmarkCPA: function (estimates) {

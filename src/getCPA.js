@@ -1,10 +1,11 @@
+import mapping from './mapping';
+
 const adsSdk = require('facebook-nodejs-ads-sdk');
 const AdAccount = adsSdk.AdAccount;
 const AdSet = adsSdk.AdSet;
 const AdsInsights = adsSdk.AdsInsights;
 const Campaign = adsSdk.Campaign;
 const AdPromotedObject = adsSdk.AdPromotedObject;
-const mapping = require('./mapping');
 
 module.exports = function (adset, insight) {
   const campaignObjective = adset[AdSet.Fields.campaign][Campaign.Fields.objective];
