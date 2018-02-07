@@ -1,6 +1,6 @@
 {
   "name": "fb-marketing-utility",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "fb marketing utility",
   "main": "build/index.js",
   "peerDependencies": {
