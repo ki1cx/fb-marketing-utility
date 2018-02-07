@@ -1,5 +1,12 @@
+.idea
+.DS_Store
 .babelrc
+.npmignore
+.gitignore
+.flowconfig
+.env*
 src
+lib
 node_modules
 docker-compose.yml
 webpack.config.js
