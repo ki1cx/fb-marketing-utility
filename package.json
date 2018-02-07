@@ -15,7 +15,13 @@
     "estimation"
   ],
   "homepage": "https://github.com/kiwchang/fb-marketing-utility",
-  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiwchang/fb-marketing-utility.git"
+  },
+  "dependencies": {
+    "facebook-nodejs-ads-sdk": "^2.11.3"
+  },
   "scripts": {
     "test": "./node_modules/.bin/jest",
     "build": "webpack",
@@ -26,6 +32,12 @@
     "name": "Ki Chang",
     "email": "kiwchang@gmail.com"
   },
+  "maintainers": [
+    {
+      "name": "Ki Chang",
+      "email": "kiwchang@gmail.com"
+    }
+  ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.24.1",
