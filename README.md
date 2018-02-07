@@ -39,6 +39,9 @@ for(const adSet of adSets) {
 	console.log(utility.getBenchmarkCPA(adSet, deliveryEstimate));
 }
 ```
+## Contributing Guide
+
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Change Log
 
