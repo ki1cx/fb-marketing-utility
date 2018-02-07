@@ -40,5 +40,11 @@ for(const adSet of adSets) {
 }
 ```
 
+## Change Log
 
+See [CHANGELOG.md](CHANGELOG.md)
+
+## License
+
+See [LICENSE](LICENSE)
 
