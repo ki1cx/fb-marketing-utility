@@ -13,16 +13,23 @@ npm install fb-marketing-utility --save
 ```javascript
 import utility from 'fb-marketing-utility';
 
+const accessToken = <your access token>
+const adAccountId = <your ad account id>
+const debug = false;
+
 const adsSdk = require('facebook-nodejs-ads-sdk');
 const AdAccount = adsSdk.AdAccount;
 const AdSet = adsSdk.AdSet;
 const Campaign = adsSdk.Campaign;
 const AdsInsights = adsSdk.AdsInsights;
-const accessToken = <your access token>
-const adAccountId = <your ad account id>
-
-const insightFields = [AdSet.Fields.id, AdSet.Fields.name, AdSet.Fields.campaign + '{' + Campaign.Fields.objective + '}', AdSet.Fields.promoted_object, AdSet.Fields.optimization_goal];
-const adSets = await account.getAdSets();
+const api = adsSdk.FacebookAdsApi.init(accessToken);
+api.setDebug(debug);
+const account = new AdAccount(adAccountId);
+const adSetFields = [AdSet.Fields.id, AdSet.Fields.name, AdSet.Fields.campaign + '{' + Campaign.Fields.objective + '}', AdSet.Fields.promoted_object, AdSet.Fields.optimization_goal];
+const insightFields = [AdsInsights.Fields.action_values, AdsInsights.Fields.cost_per_action_type];
+const adSets = await account.getAdSets(adSetFields, {
+	limit: 1
+});
 
 for(const adSet of adSets) {
 	console.log(adSet.name);
@@ -35,8 +42,8 @@ for(const adSet of adSets) {
 	console.log(utility.getCPA(adSet, insights));
 	
 	//Calcualte CPA based on Delivery Estimate
-	const deliveryEstimate = await adSet.getDeliveryEstimate([], {});
-	console.log(utility.getBenchmarkCPA(adSet, deliveryEstimate));
+	const deliveryEstimates = await adSet.getDeliveryEstimate([], {});
+	console.log(utility.getBenchmarkCPA(deliveryEstimates));
 }
 ```
 ## Contributing Guide

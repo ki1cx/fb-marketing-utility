@@ -24,8 +24,9 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/jest",
-    "build": "webpack",
-    "buildLib": "babel src --presets=env,flow --ignore='**/*.test.js',fixtures --out-dir lib",
+    "build-webpack": "webpack",
+    "build-lib": "babel src --presets=env,flow --ignore='**/*.test.js',fixtures --out-dir lib",
+    "example": "./node_modules/.bin/babel-node ./examples/example",
     "lint": "./node_modules/.bin/eslint ."
   },
   "author": {
