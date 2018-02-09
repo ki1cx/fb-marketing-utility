@@ -35,18 +35,24 @@ module.exports = function (adset, insight, debug) {
     console.log('=> actionType: ' + actionType);
   }
 
-  for (const costPerActionType of costPerActionTypes) {
-    if (actionType) {
-      if (costPerActionType.action_type === actionType) {
-        foundCostPerActionValue = costPerActionType.value;
-        break;
-      }
-    } else {
-      if (costPerActionType.field === field) {
-        foundCostPerActionValue = costPerActionType.value;
-        break;
+  if(costPerActionTypes) {
+    for (const costPerActionType of costPerActionTypes) {
+      if (actionType) {
+        if (costPerActionType.action_type === actionType) {
+          foundCostPerActionValue = costPerActionType.value;
+          break;
+        }
+      } else {
+        if (costPerActionType.field === field) {
+          foundCostPerActionValue = costPerActionType.value;
+          break;
+        }
       }
     }
+
+    foundCostPerActionValue = parseFloat(foundCostPerActionValue);
+  } else {
+    foundCostPerActionValue = undefined;
   }
 
   if(debug) {
@@ -54,7 +60,7 @@ module.exports = function (adset, insight, debug) {
   }
 
   const result = {
-    cpa: parseFloat(foundCostPerActionValue),
+    cpa: foundCostPerActionValue,
     date_start: insight.date_start,
     date_stop: insight.date_stop
   };

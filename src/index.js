@@ -29,7 +29,9 @@ const utility = {
     if(insights.length) {
       for (const insight of insights) {
         const result = _getCPA(adSet, insight, utility.debug);
-        sum += parseFloat(result.cpa);
+        if(result.cpa) {
+          sum += result.cpa;
+        }
         cpas.push(result);
       }
 
