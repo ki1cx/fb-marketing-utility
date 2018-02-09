@@ -16,7 +16,7 @@ module.exports = function (adset, insight, debug) {
   const field = mapping[campaignObjective][optimizationGoal][customEventType].field;
   const actionValues = insight.action_values;
   const costPerActionTypes = insight.cost_per_action_type;
-  let foundCostPerActionValue;
+  let foundCostPerActionValue = 0;
 
   if(debug) {
     console.log('===');
