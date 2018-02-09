@@ -1,6 +1,6 @@
 version: '3'
 services:
-  react-client:
+  fb-marketing-utility:
     image: node:9.3.0
     container_name: fb_marketing_utility
     hostname: fb-marketing-utility

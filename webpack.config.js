@@ -26,6 +26,6 @@ module.exports = {
     ]
   },
   externals: {
-    'facebook-nodejs-ads-sdk': 'facebook-nodejs-ads-sdk' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
+    'facebook-nodejs-ads-sdk': 'facebook-nodejs-ads-sdk'
   }
 };
