@@ -3,7 +3,7 @@ function precisionRound(number, precision) {
   return Math.round(number * factor) / factor;
 }
 
-module.exports = function (delivery_estimate) {
+module.exports = function (delivery_estimate, debug) {
   const dailyOutcomesCurve = delivery_estimate.daily_outcomes_curve;
   let cpa;
   let cpaSum = 0;
@@ -12,6 +12,11 @@ module.exports = function (delivery_estimate) {
   let cpaMax;
   let cpaSpread;
   let curveCPA = Array();
+
+  if(debug) {
+    console.log('=> Daily Outcomes Curve');
+    console.log(dailyOutcomesCurve);
+  }
 
   for (const curve of dailyOutcomesCurve) {
     if(curve.actions) {
@@ -33,7 +38,9 @@ module.exports = function (delivery_estimate) {
   cpaSum = precisionRound(cpaSum, 3);
   cpaSpread = precisionRound(cpaSpread, 3);
 
-  // console.log('=> CPA: ' + cpaAvg);
+  if(debug) {
+    console.log('=> CPA: ' + cpaAvg);
+  }
 
   const result = {
     cpaAvg: cpaAvg,

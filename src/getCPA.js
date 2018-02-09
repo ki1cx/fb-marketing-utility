@@ -7,7 +7,7 @@ const AdsInsights = adsSdk.AdsInsights;
 const Campaign = adsSdk.Campaign;
 const AdPromotedObject = adsSdk.AdPromotedObject;
 
-module.exports = function (adset, insight) {
+module.exports = function (adset, insight, debug) {
   const campaignObjective = adset[AdSet.Fields.campaign][Campaign.Fields.objective];
   const optimizationGoal = adset[AdSet.Fields.optimization_goal];
   const promotedObject = adset[AdSet.Fields.promoted_object];
@@ -18,20 +18,22 @@ module.exports = function (adset, insight) {
   const costPerActionTypes = insight.cost_per_action_type;
   let foundCostPerActionValue;
 
-  // console.log('===');
-  // console.log(adset[AdSet.Fields.name] + ': ' + campaignObjective + " -> " + optimizationGoal);
-  // console.log('===');
-  //
-  // console.log('=> Promoted Object');
-  // console.log(promotedObject);
-  // console.log('=> Action Values');
-  // console.log(actionValues);
-  // console.log('=> Cost Per Action Type');
-  // console.log(costPerActionTypes);
-  //
-  // console.log('=> customEventType: ' + customEventType);
-  // console.log('=> field: ' + field);
-  // console.log('=> actionType: ' + actionType);
+  if(debug) {
+    console.log('===');
+    console.log(adset[AdSet.Fields.name] + ': ' + campaignObjective + " -> " + optimizationGoal);
+    console.log('===');
+
+    console.log('=> Promoted Object');
+    console.log(promotedObject);
+    console.log('=> Action Values');
+    console.log(actionValues);
+    console.log('=> Cost Per Action Type');
+    console.log(costPerActionTypes);
+
+    console.log('=> customEventType: ' + customEventType);
+    console.log('=> field: ' + field);
+    console.log('=> actionType: ' + actionType);
+  }
 
   for (const costPerActionType of costPerActionTypes) {
     if (actionType) {
@@ -45,7 +47,9 @@ module.exports = function (adset, insight) {
     }
   }
 
-  // console.log('=> CPA: ' + foundCostPerActionValue);
+  if(debug) {
+    console.log('=> CPA: ' + foundCostPerActionValue);
+  }
 
   const result = {
     cpa: parseFloat(foundCostPerActionValue),

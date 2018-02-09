@@ -8,12 +8,13 @@
 import _getCPA from './getCPA';
 import _getBenchmarkCPA from './getBenchmarkCPA';
 
-module.exports = {
+const utility = {
+  debug: false,
   getBenchmarkCPA: function (estimates) {
     let cpas = Array();
 
     for (const estimate of estimates) {
-      const result = _getBenchmarkCPA(estimate);
+      const result = _getBenchmarkCPA(estimate, utility.debug);
       cpas.push(result);
     }
 
@@ -26,7 +27,7 @@ module.exports = {
     let sum = 0;
 
     for (const insight of insights) {
-      const result = _getCPA(adSet, insight);
+      const result = _getCPA(adSet, insight, utility.debug);
       sum += parseFloat(result.cpa);
       cpas.push(result);
     }
@@ -38,3 +39,5 @@ module.exports = {
     }
   }
 }
+
+module.exports = utility;
