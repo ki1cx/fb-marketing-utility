@@ -39,10 +39,12 @@ module.exports = function (adset, insight, debug) {
     if (actionType) {
       if (costPerActionType.action_type === actionType) {
         foundCostPerActionValue = costPerActionType.value;
+        break;
       }
     } else {
       if (costPerActionType.field === field) {
         foundCostPerActionValue = costPerActionType.value;
+        break;
       }
     }
   }
