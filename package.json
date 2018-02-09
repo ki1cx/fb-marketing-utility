@@ -14,10 +14,10 @@
     "delivery",
     "estimation"
   ],
-  "homepage": "https://github.com/kiwchang/fb-marketing-utility",
+  "homepage": "https://github.com/ki1cx/fb-marketing-utility",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kiwchang/fb-marketing-utility.git"
+    "url": "git+https://github.com/ki1cx/fb-marketing-utility.git"
   },
   "dependencies": {
     "facebook-nodejs-ads-sdk": "^2.11.3"
