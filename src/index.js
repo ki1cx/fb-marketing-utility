@@ -26,15 +26,23 @@ const utility = {
     let cpas = Array();
     let sum = 0;
 
-    for (const insight of insights) {
-      const result = _getCPA(adSet, insight, utility.debug);
-      sum += parseFloat(result.cpa);
-      cpas.push(result);
+    if(insights.length) {
+      for (const insight of insights) {
+        const result = _getCPA(adSet, insight, utility.debug);
+        sum += parseFloat(result.cpa);
+        cpas.push(result);
+      }
+
+      return {
+        avg: insights.length ? (sum / insights.length) : 0,
+        sum: sum,
+        cpa: cpas
+      }
     }
 
     return {
-      avg: insights.length ? (sum / insights.length) : 0,
-      sum: sum,
+      avg: undefined,
+      sum: undefined,
       cpa: cpas
     }
   }
