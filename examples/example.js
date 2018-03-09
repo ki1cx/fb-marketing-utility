@@ -1,5 +1,4 @@
 import utility from '../build/index';
-import _getBenchmarkCPA from "../src/getBenchmarkCPA";
 
 require('dotenv').config();
 
@@ -19,13 +18,12 @@ void async function () {
   const adSetFields = [AdSet.Fields.id, AdSet.Fields.name, AdSet.Fields.campaign + '{' + Campaign.Fields.objective + '}', AdSet.Fields.promoted_object, AdSet.Fields.optimization_goal];
   const insightFields = [AdsInsights.Fields.action_values, AdsInsights.Fields.cost_per_action_type];
   const adSets = await account.getAdSets(adSetFields, {
-    limit: 3
+    limit: 5
   });
 
   utility.debug = debug;
 
   try {
-
     for (const adSet of adSets) {
       console.log(adSet.name);
 
